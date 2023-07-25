@@ -1,7 +1,6 @@
 import React from 'react'
 import "./list.scss"
 import PlaceDetails from '../placeDetails/PlaceDetails'
-import { Slider, RangeSlider } from 'rsuite';
 
 import {CirclesWithBar} from 'react-loader-spinner'
 
@@ -9,9 +8,6 @@ const List = ({places, loading}) => {
 
   return (
     <div className='list-container'>
-      <div className='slider-container'>
-        <RangeSlider defaultValue={[5]} max={5} style={{height:'25rem', width:'25%', color:'black'}} />
-      </div>
       { 
         loading ? <CirclesWithBar
         height="100"
