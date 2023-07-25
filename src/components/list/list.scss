@@ -1,0 +1,18 @@
+@import '../../style.scss';
+
+.list-container{
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+    overflow: scroll;
+
+    .slider-container{
+        width:100%;
+        background: white;
+        position:relative;
+        top:0;
+        left:0;
+        height:max-content;
+        border:1px solid black;
+    }
+}

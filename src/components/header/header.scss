@@ -1,0 +1,26 @@
+@import '../../style.scss';
+
+.header-container{
+    width:100%;
+    font-size: 1.4rem;
+    position: absolute;
+    top:0;
+    z-index: 5;
+    // border-bottom:1px solid rgb(168, 167, 167);
+    padding: 1 8rem;
+    display: flex;
+    justify-content: center;
+    margin:auto;
+}
+
+.nav-link{
+    border:1px solid black;
+    padding:.5rem 2rem;
+    border-radius: 1.5rem;
+    // width: max-content;
+    text-align: center;
+}
+.me-2{
+    font-size: 1.5rem;
+}
+

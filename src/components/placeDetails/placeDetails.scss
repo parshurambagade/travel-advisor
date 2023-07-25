@@ -1,0 +1,22 @@
+.place-link{
+    text-decoration: none;
+    color: #000;
+    font-size: 1.3rem;
+    margin:1rem 1rem 0 0;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.cuisine-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cuisine{
+    font-size: 1.3rem;
+    margin:.5rem;
+    padding:.3rem 1rem;
+    border:1px solid gray;
+    border-radius: 1rem;
+    background: rgb(238, 229, 229);
+}
