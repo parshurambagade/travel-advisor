@@ -5,14 +5,50 @@
     flex-direction: column;
     scroll-behavior: smooth;
     overflow: scroll;
+    background-color: white;
 
-    .slider-container{
+    @include tablet{
         width:100%;
-        background: white;
-        position:relative;
-        top:0;
-        left:0;
+        height:100%;
+        overflow: scroll;
+    }
+
+    .range-container{
+        width:30%;
         height:max-content;
-        border:1px solid black;
+        border:1px solid rgb(168, 167, 167);
+        background:rgb(253, 239, 239);
+        padding:.5rem 1rem;
+        display: flex;
+        flex-direction: column;
+        margin:1rem 1.5rem;
+        font-size: 1rem;
+
+        @include tablet{
+            width:60%;
+            margin:1rem 0;
+        }
+
+        @include mobile{
+            width:90%;
+            margin:1rem auto;
+        }
+        .range-label{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin:.5rem 0;
+        }
+
+        #myRange{
+            margin: .5rem 0;
+            
+        }
+
+    }
+    .list-title{
+        padding:.5rem 1.5rem;
+        background-color: white;
+        font-size: 1rem;
     }
 }

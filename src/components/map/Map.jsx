@@ -1,5 +1,5 @@
 import React from 'react';
-// import "./map.scss";
+import "./map.scss";
 import GoogleMapReact from 'google-map-react';
 import { MdLocationOn }  from 'react-icons/md';
 
@@ -7,7 +7,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places }) => {
 
 const Mark = ({ text }) => <span style={{fontSize:'4rem', color:'red'}}>{text}</span>;
   return (
-    <div style={{height:'100%', width:"100%", fontSize:'2rem'}}>
+    <div className='map-container'>
       
     <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }} // Replace with your Google Maps API key
@@ -22,6 +22,7 @@ const Mark = ({ text }) => <span style={{fontSize:'4rem', color:'red'}}>{text}</
           setCoordinates({ lat: e.center.lat, lng: e.center.lng });
           setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
         }}
+        className='google-map'
       >
     
         {/* {places && places.map((place, i) => (

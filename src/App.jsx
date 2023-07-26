@@ -8,6 +8,8 @@ import './app.scss';
 
 const App = () => {
   const [places, setPlaces] = useState([]);
+
+  const [distance, setDistance] = useState(5);
   
   const [loading, setLoading] = useState(false);  
 
@@ -47,7 +49,7 @@ const App = () => {
       </div>
       <div className='list-map-container'>
         <div className='list-container'>
-          <List places={places} loading={loading} />
+          <List places={places} loading={loading} distance={distance} setDistance={setDistance} type={type} />
         </div>
         <div className="map-container">
           <Map setBounds={setBounds} setCoordinates={setCoordinates} coordinates={coordinates} places={places} />
