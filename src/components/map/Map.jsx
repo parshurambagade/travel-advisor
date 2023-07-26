@@ -5,7 +5,7 @@ import { MdLocationOn }  from 'react-icons/md';
 
 const Map = ({ setCoordinates, setBounds, coordinates, places }) => {
 
-const Mark = ({ text }) => <span style={{fontSize:'4rem', color:'red'}}>{text}</span>;
+const Mark = ({ text }) => <span style={{fontSize:'3rem', color:'red'}}>{text}</span>;
   return (
     <div className='map-container'>
       

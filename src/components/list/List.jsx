@@ -1,9 +1,25 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import "./list.scss";
 import PlaceDetails from '../placeDetails/PlaceDetails';
 import { CirclesWithBar } from 'react-loader-spinner';
 
 const List = ({ places, loading, distance, setDistance, type }) => {
+
+  const [filteredPlaces, setFilteredPlaces] = useState([]);
+
+  const trackStyles = {
+    '--distance': `calc(${distance}% / 100 * 100)`,
+  };
+
+  useEffect(() => {
+    // Check if places is defined and not empty
+    if (Array.isArray(places) && places.length > 0) {
+      // Filter places based on the selected distance
+      const filtered = places.filter((place) => place.distance <= distance);
+      setFilteredPlaces(filtered);
+    }
+  }, [places, distance]);
+  
   return (
     <div className='list-container'>
       <div className='range-container'>
@@ -11,7 +27,7 @@ const List = ({ places, loading, distance, setDistance, type }) => {
           <span>Distance</span>
           <span>{distance}</span>
         </div>
-        <input type="range" min="0" max="5" value={distance} className="slider" id="myRange" onChange={(e) => setDistance(e.target.value)} />
+        <input type="range" min="0" max="5" value={distance} className="slider" id="my-range" onChange={(e) => setDistance(e.target.value)} style={trackStyles} />
       </div>
 
       {
@@ -30,11 +46,12 @@ const List = ({ places, loading, distance, setDistance, type }) => {
           />
         ) : (
           places && places.length > 0 ? (
+
             <>
               <div className="list-title">
-                <h5>{`We found ${places.length} ${type.title}'s around you:`}</h5>
+                <h5>{`We found ${filteredPlaces.length} ${type.title}'s around you:`}</h5>
               </div>
-              {places.map((place, i) => (
+              {filteredPlaces.map((place, i) => (
                 <PlaceDetails place={place} key={i} id={i} />
               ))}
             </>
