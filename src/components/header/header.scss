@@ -1,25 +1,32 @@
 @import '../../style.scss';
 
-.header-container{
-    width:100%;
-    font-size: 1.1rem;
+.navbar{
+    background-color: rgb(66, 64, 64);
+    height:9vh;
+    width:100vw;
+    color:white;
+    padding: 0 10vw;
+    display: flex;
+    justify-content: space-between;
     position: absolute;
     top:0;
-    z-index: 5;
-    // border-bottom:1px solid rgb(168, 167, 167);
-    padding: 1 8rem;
-    display: flex;
-    justify-content: center;
-    margin:auto;
-}
 
-.nav-link{
-    border:1px solid black;
-    padding:.5rem 2rem;
-    border-radius: 1.5rem;
-    // width: max-content;
-    text-align: center;
-}
-.me-2{
-    font-size: 1.5rem;
+    @include tablet{
+        position: fixed;
+        z-index: 99;
+        height:7vh;
+    }
+    @include mobile{
+        position: fixed;
+        z-index: 99;
+    }
+    @include small-mobile{
+        position: fixed;
+        z-index: 99;
+    }
+    .nav-dropdown{
+        font-size: 1.3rem;
+        display: flex;
+        gap:.5rem;
+    }
 }

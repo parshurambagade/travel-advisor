@@ -18,8 +18,8 @@ const App = () => {
   const [bounds, setBounds] = useState({});
 
   const [type, setType] = useState({
-    type: "attractions",
-    title: "Attractions"
+    type: "restaurants",
+    title: "Restaurants"
   });
 
   useEffect(() => {
@@ -44,9 +44,7 @@ const App = () => {
 
   return (
     <div className='app-container'>
-      <div className='header-container'>
-      <Header type={type} setType={setType} />
-      </div>
+      <Header type={type} setType={setType}  />
       <div className='list-map-container'>
         <div className='list-container'>
           <List places={places} loading={loading} distance={distance} setDistance={setDistance} type={type} />

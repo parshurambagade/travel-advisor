@@ -4,7 +4,10 @@
     height:100%;
     width:100%;
     font-size: 2rem;
-
+   @include tablet{
+       height:50vh;
+       width:100%;
+   }
 
    .google-map{
     @include tablet{

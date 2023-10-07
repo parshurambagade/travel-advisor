@@ -7,10 +7,22 @@
     padding: 1rem;
     height: max-content;    
     flex-direction: row;
-
+    
+    @include tablet{
+        // margin:1rem 0;
+        // border-radius: 1rem;
+        padding:2rem 1rem;
+    }
     @include mobile{
+        margin:1rem 0;
+        border-radius: 1rem;
+        padding:2rem 1rem;
+    }
+    @include small-mobile{
+        margin:1rem 0;
+        border-radius: 1rem;
+        padding:2rem 1rem;
         flex-direction: column;
-        padding: 1rem;
     }
     .card-img{
         width: 30%;
@@ -48,6 +60,10 @@
             width:100%;
             padding:1rem 0;
             line-height: 1rem;
+        }
+
+        @include small-mobile{
+            padding:1rem;
         }
         .card-title{
             font-size: 1.2rem;

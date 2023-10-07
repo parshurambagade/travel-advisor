@@ -25,7 +25,7 @@ const List = ({ places, loading, distance, setDistance, type }) => {
       <div className='range-container'>
         <div className='range-label'>
           <span>Distance</span>
-          <span>{distance}</span>
+          <span>{distance} km</span>
         </div>
         <input type="range" min="0" max="5" value={distance} className="slider" id="my-range" onChange={(e) => setDistance(e.target.value)} style={trackStyles} />
       </div>
@@ -49,7 +49,7 @@ const List = ({ places, loading, distance, setDistance, type }) => {
 
             <>
               <div className="list-title">
-                <h5>{`We found ${filteredPlaces.length} ${type.title}'s around you:`}</h5>
+                <h5>{`We found ${filteredPlaces.length} ${type.title}'s around you`}</h5>
               </div>
               {filteredPlaces.map((place, i) => (
                 <PlaceDetails place={place} key={i} id={i} />
@@ -57,7 +57,7 @@ const List = ({ places, loading, distance, setDistance, type }) => {
             </>
           ) : (
             <div className="list-title">
-              <h5>{`No ${type.title} found.`}</h5>
+              <h5>{`No ${type.title} found`}</h5>
             </div>
           )
         )
