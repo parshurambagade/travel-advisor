@@ -1,3 +1,135 @@
+@import '../../style.scss';
+
+.card{
+    width:100%;
+    display: flex;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 1rem;
+    height: max-content;    
+    flex-direction: row;
+    
+    @include tablet{
+        // margin:1rem 0;
+        // border-radius: 1rem;
+        padding:2rem 1rem;
+    }
+
+    @include mobile{
+        // margin:1rem 0;
+        border-radius: 1rem;
+        padding:1rem 1rem 2rem;
+        flex-direction: column;
+    }
+    @include small-mobile{
+        // margin:1rem 0;
+        border-radius: 1rem;
+        padding:1rem 1rem 2rem;
+        flex-direction: column;
+    }
+    .card-img{
+        width: 30%;
+        height: 100%;
+        border-radius: 1rem;
+        margin-right: 1rem;
+
+        @include tablet{
+            width:40%;
+        }
+        @include mobile{
+            width:100%;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+    }
+
+    .card-body{
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem 0;
+        line-height: .8rem;
+
+        @include tablet{
+            width:60%;
+        }
+        @include mobile{
+            width:100%;
+            padding:1rem 0;
+            line-height: 1rem;
+        }
+
+        @include small-mobile{
+            padding:1rem;
+        }
+        .card-title{
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            
+            @include mobile{
+                font-size: 1.5rem;
+            }
+        }
+
+        .card-text{
+            font-size: 1rem;
+            margin:0;
+            padding:0;
+            &:empty {
+                display: none;
+              }
+        }
+
+        .cuisine-container{
+            display: flex;
+            flex-wrap: wrap;
+
+            &:empty {
+                display: none;
+              }
+
+            .cuisine{
+                font-size: 1rem;
+                padding:.5rem;
+            }
+        }
+
+        .link-container{
+            display: flex;
+            @include mobile{
+                gap:2rem;
+            }
+            .card-link{
+                font-size: 1rem;
+                text-decoration: none;
+                color: #000;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .place-link{
     text-decoration: none;
     color: #000;
@@ -8,10 +140,7 @@
     }
 }
 
-.cuisine-container{
-    display: flex;
-    flex-wrap: wrap;
-}
+
 .cuisine{
     font-size: 1.3rem;
     margin:.5rem;

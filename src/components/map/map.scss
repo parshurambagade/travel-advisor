@@ -1,12 +1,19 @@
-// @import "../../style.scss";
+@import "../../style.scss";
 
-.markerContainer {
-    width: 20px;
-    height: 20px;
-  }
-  
+.map-container{
+    height:100%;
+    width:100%;
+    font-size: 2rem;
+   @include tablet{
+       height:50vh;
+       width:100%;
+   }
 
-.pointer{
-    // height:100px;
-    // width:100px;
+   .google-map{
+    @include tablet{
+      height:100%;
+       width:100%;
+    }
+       
+   }
 }
