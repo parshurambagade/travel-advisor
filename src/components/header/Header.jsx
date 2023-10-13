@@ -1,25 +1,20 @@
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import "./header.scss";
 
-const Header = ({ type, setType }) => {
-  const handleTypeChange = (event) => {
-    const selectedType = event.target.value;
-    setType({ type: selectedType, title: selectedType });
-    console.log(selectedType);
-  };
-
+const Header = () => {
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   return (
     <div className="navbar">
       <div className="logo">
         <h2>Travel Advisor</h2>
       </div>
-      <div className="nav-dropdown">
-        <label htmlFor="filters">Filter:</label>
-        <select name="filters" id="filters" onChange={handleTypeChange}>
-          <option value="restaurants">Restaurants</option>
-          <option value="hotels">Hotels</option>
-          <option value="attractions">Attractions</option>
-        </select>
+      <div className="nav-buttons">
+        {isAuthenticated ? <button className="btn logout-btn" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+      Log Out
+    </button> : <button className="btn login-btn" onClick={() => loginWithRedirect()}>Log In</button>}
+      
+      
       </div>
     </div>
   );

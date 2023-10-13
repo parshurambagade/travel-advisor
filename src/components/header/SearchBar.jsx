@@ -4,7 +4,7 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 const  MySearchComponent = () => {
   const [address, setAddress] = useState('');
 
-  const handleChange = (value) => {
+  const handleChange = (value) => { 
     setAddress(value);
   };
 

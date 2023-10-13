@@ -44,10 +44,10 @@ const App = () => {
 
   return (
     <div className='app-container'>
-      <Header type={type} setType={setType}  />
+      <Header />
       <div className='list-map-container'>
         <div className='list-container'>
-          <List places={places} loading={loading} distance={distance} setDistance={setDistance} type={type} />
+          <List places={places} loading={loading} distance={distance} setDistance={setDistance} type={type} setType={setType} />
         </div>
         <div className="map-container">
           <Map setBounds={setBounds} setCoordinates={setCoordinates} coordinates={coordinates} places={places} />

@@ -4,8 +4,8 @@ import axios from 'axios';
 
 
 export const getPlacesData = async (type, sw, ne) => {
-  const URL = `https://travel-advisor.p.rapidapi.com/${type.type}/list-in-boundary`;
-  // const URL = `http://localhost:3000/test-api/${type.type}.json`;
+  // const URL = `https://travel-advisor.p.rapidapi.com/${type.type}/list-in-boundary`;
+  const URL = `http://localhost:3000/test-api/${type.type}.json`;
     
 
     try{

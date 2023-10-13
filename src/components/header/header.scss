@@ -24,9 +24,27 @@
         position: fixed;
         z-index: 99;
     }
-    .nav-dropdown{
-        font-size: 1.3rem;
-        display: flex;
-        gap:.5rem;
+
+    .nav-buttons{
+        .logout-btn, .login-btn{
+            padding:.5rem 1rem;
+            border: 1px solid transparent;
+            color:white;
+        }
+
+        .logout-btn{
+            background:rgb(234, 83, 83);
+            :hover{
+                background-color:black;
+            }
+        }
+        .login-btn{
+            background:rgb(67, 146, 235);
+
+            :hover{
+                background:black;
+            }
+        }
     }
+    
 }
