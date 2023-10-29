@@ -8,6 +8,7 @@
     padding: 0 10vw;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: absolute;
     top:0;
 
@@ -15,21 +16,59 @@
         position: fixed;
         z-index: 99;
         height:7vh;
+        padding:0 5vw;
     }
     @include mobile{
         position: fixed;
         z-index: 99;
+        padding:0 5vw;
     }
     @include small-mobile{
         position: fixed;
         z-index: 99;
+        padding:0 5vw;
     }
 
+    .logo{
+        width:max-content;
+
+        @include mobile{
+            width:30vw;
+        }
+        @include small-mobile{
+            width:20vw;
+        }
+        h2{
+            @include mobile{
+                width:20vw;
+            };
+            @include small-mobile{
+                width:20vw;
+            };
+        }
+        
+    }
+
+    .searchbar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top:0;
+        padding-top:0;
+        width:50vw;
+
+        @include tablet{
+            width:70vw;
+        }
+
+    }
     .nav-buttons{
         .logout-btn, .login-btn{
             padding:.5rem 1rem;
             border: 1px solid transparent;
             color:white;
+
+            
         }
 
         .logout-btn{

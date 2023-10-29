@@ -46,7 +46,7 @@ const PlaceDetails = ({ place, id }) => {
 
       <br />
 
-      {place.parent_display_name && <span style={{ color: 'gray' }} className='card-text'> <MdLocationOn /> {place.parent_display_name}</span>}
+      {place.parent_display_name ? <span style={{ color: 'gray' }} className='card-text'> <MdLocationOn /> {place.parent_display_name}</span> : place.location_string ? <span style={{ color: 'gray' }} className='card-text'> <MdLocationOn /> {place.location_string}</span> : null}
 
       <br />
 

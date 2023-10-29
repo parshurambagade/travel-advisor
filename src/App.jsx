@@ -1,8 +1,8 @@
-import { getPlacesData } from './api'
+import { getPlacesData } from './api/index.js'
 import React, {useState, useEffect} from 'react'
-import Header from "./components/header/Header"
-import Map from "./components/map/Map"
-import List from "./components/list/List"
+import Header from "./components/header/Header.jsx"
+import Map from "./components/map/Map.jsx"
+import List from "./components/list/List.jsx"
 import "./style.scss"
 import './app.scss';
 
@@ -44,7 +44,7 @@ const App = () => {
 
   return (
     <div className='app-container'>
-      <Header />
+      <Header setCoordinates={setCoordinates} />
       <div className='list-map-container'>
         <div className='list-container'>
           <List places={places} loading={loading} distance={distance} setDistance={setDistance} type={type} setType={setType} />

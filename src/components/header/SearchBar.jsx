@@ -1,43 +1,49 @@
-import React, { useState } from 'react';
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import React, {useRef} from 'react'
+import { StandaloneSearchBox, LoadScript } from '@react-google-maps/api'
 
-const  MySearchComponent = () => {
-  const [address, setAddress] = useState('');
+const SearchBar = ({setCoordinates}) => {
+  const inputRef = useRef();
 
-  const handleChange = (value) => { 
-    setAddress(value);
-  };
-
-  const handleSelect = async (value) => {
-    try {
-      const results = await geocodeByAddress(value);
-      const latLng = await getLatLng(results[0]);
-      // Handle the selected place here
-      console.log('Selected Place:', value);
-      console.log('Selected Location:', latLng);
-    } catch (error) {
-      console.error('Error selecting place:', error);
+  const handlePlaceChanged = () => {
+    const [place] = inputRef.current.getPlaces();
+    if(place){
+      console.log(place.formatted_address);
+      // console.log("Palus");
+      // console.log(place.geometry.location.lat());
+      // console.log(place.geometry.location.lng()); 
+      setCoordinates({lat: place.geometry.location.lat(), lng: place.geometry.location.lng()});
+    }else{
+      console.log("No place found");
     }
   };
 
-  return (
-    <div>
-      <h1>Search Box</h1>
-      <PlacesAutocomplete value={address} onChange={handleChange} onSelect={handleSelect}>
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <input {...getInputProps({ placeholder: 'Type address' })} />
-            <div>
-              {loading && <div>Loading...</div>}
-              {suggestions.map((suggestion) => (
-                <div {...getSuggestionItemProps(suggestion)}>{suggestion.description}</div>
-              ))}
-            </div>
-          </div>
-        )}
-      </PlacesAutocomplete>
-    </div>
-  );
-};
 
-export default MySearchComponent;
+  return (
+    <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY} libraries={["places"]}>
+
+      <StandaloneSearchBox onLoad={ref => inputRef.current = ref} onPlacesChanged={handlePlaceChanged}>
+        <input
+          type="text"
+          placeholder="Enter an address"
+          style={{
+            boxSizing: `border-box`,
+            border: `1px solid transparent`,
+            width: `40vw`,
+            padding: `.6rem`,
+            borderRadius: `3px`,
+            boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+            fontSize: `1rem`,
+            outline: `none`,
+            textOverflow: `ellipses`,
+            // position: "absolute",
+            // left: "50%",
+            // marginLeft: "-120px",
+            marginTop: "0"
+          }}
+        />
+        </StandaloneSearchBox>
+    </LoadScript>
+  )
+}
+
+export default SearchBar
